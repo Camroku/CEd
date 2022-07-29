@@ -1,0 +1,23 @@
+{
+  "name": "ced",
+  "version": "0.0.1",
+  "description": "Camroku Editor, a code editor written in Node.JS using Electron.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Camroku/CEd.git"
+  },
+  "author": "Cinar Yilmaz <cinaryilmaz.gnu@gmail.com>",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Camroku/CEd/issues"
+  },
+  "homepage": "https://github.com/Camroku/CEd#readme",
+  "devDependencies": {
+    "electron": "^19.0.10"
+  }
+}
