@@ -10,6 +10,8 @@ const createWindow = () => {
     win.setMenu(null)
 
     win.loadFile('static/index.html')
+
+    // win.webContents.openDevTools()
 }
 
 app.whenReady().then(() => {
