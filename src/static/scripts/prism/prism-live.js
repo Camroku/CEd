@@ -793,7 +793,7 @@
             },
             "Ctrl + Shift + D": function () {
                 this.duplicateContent();
-            }
+            },
         },
         languages: {
             DEFAULT: {

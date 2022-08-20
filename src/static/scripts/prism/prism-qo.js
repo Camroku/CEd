@@ -1,9 +1,9 @@
 Prism.languages['qo'] = {
-    'comment': /(\/\*[^\*\/]*\*\/)/s,
+    'comment': /(\/\*[^\*\/]*\*\/)|(#.+[^$])/,
     'string': /("(?:[^"\\]|\\.)*"|'(?:[^'\\]|\\.)*')/s,
+	'builtin': /(?<![a-zA-Z0-9_])(println|print|input|exit|hasAttr|exists|remove|None|chr|len|__main__|__qcf__)(?![a-zA-Z0-9_])/,
 	'keyword': /(func|elif|if|else|return|foreach|for|while|times|include|define)/,
     'number': /([0-9]+)/,
-	'builtin': /(println|print|input|toInt|toStr|toBool|type|exit|mod|hasAttr|exists|remove|None|exportAll|chr|join|split|len|replace|format|__main__|__qcf__)/,
     'function': /([a-zA-Z0-9_]+)(?=\()/,
     'important': /(__export__|(?=include )[a-zA-Z0-9_]+)/,
     'operator': /(\+|-|\*|\/|=|<|>|<=|>=|==|!=| as | in |&|%|&&|\|\|\+=|\*\*)/,

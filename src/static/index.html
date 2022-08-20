@@ -5,25 +5,46 @@
     <meta charset="utf-8">
     <title>CEd</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="apprentice.css">
-    <link rel="stylesheet" type="text/css" href="prism-apprentice.css">
-    <link rel="stylesheet" type="text/css" href="prism-live.css">
-    <link rel="stylesheet" type="text/css" href="prism-line-numbers.css">
-    <link rel="stylesheet" type="text/css" href="ced.css">
+    <link rel="stylesheet" type="text/css" href="styles/apprentice.css">
+    <link rel="stylesheet" type="text/css" href="styles/prism-apprentice.css">
+    <link rel="stylesheet" type="text/css" href="styles/prism-live.css">
+    <link rel="stylesheet" type="text/css" href="styles/prism-line-numbers.css">
+    <link rel="stylesheet" type="text/css" href="styles/ced.css">
 </head>
 
 <body>
-    <h3>CEd 0.0.1</h3>
-    <textarea class="prism-live line-numbers language-qo fill" spellcheck="false" placeholder="Start coding!" style="--height: 90vh;"></textarea>
-    <script src="bliss.shy.min.js"></script>
-    <script src="prism/prism.js"></script>
-    <script src="prism/prism-line-numbers.js"></script>
-    <script src="prism/prism-live.js"></script>
-    <script src="prism/prism-live-markup.js"></script>
-    <script src="prism/prism-live-css.js"></script>
-    <script src="prism/prism-live-javascript.js"></script>
-    <script src="prism/prism-live-qolang.js"></script>
-    <script src="prism/prism-qo.js"></script>
+    <h3>CEd 0.0.1 - <span id="filename"></span> <button id="save">Save</button></h3>
+    <textarea class="prism-live line-numbers language-qo fill" spellcheck="false" placeholder="Start coding!"
+        style="--height: 90vh;" id="filecontent"></textarea>
+    <script src="scripts/bliss.shy.min.js"></script>
+    <script src="scripts/prism/prism.js"></script>
+    <script src="scripts/prism/prism-line-numbers.js"></script>
+    <script src="scripts/prism/prism-live.js"></script>
+    <script src="scripts/prism/prism-live-markup.js"></script>
+    <script src="scripts/prism/prism-live-css.js"></script>
+    <script src="scripts/prism/prism-live-javascript.js"></script>
+    <script src="scripts/prism/prism-live-qolang.js"></script>
+    <script src="scripts/prism/prism-qo.js"></script>
+    <script type="text/javascript">
+        let fs = require('fs');
+        let $ = require('jquery');
+
+        function CEd_LoadFile() {
+            let filecontent = $('#filecontent');
+            filecontent.text(fs.readFileSync(CEd_File, 'utf8'));
+            filecontent.trigger('keydown');
+        };
+
+        $('#save').on('click', () => {
+            let contents = $('#filecontent').val();
+            fs.writeFile('test.qo', contents, (err) => {
+                if (err) {
+                    console.log(err);
+                }
+            });
+        });
+
+    </script>
 </body>
 
 </html>

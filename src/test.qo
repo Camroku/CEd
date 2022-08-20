@@ -1,0 +1,18 @@
+#!/usr/local/bin/qo
+include lib.wutils;
+include lib.qomar;
+include lib.sort;
+include lib.db;
+include qcf;
+include qo;
+
+qcf.new("config.qcf", &config);
+
+config.author = config.get("author");
+config.url = config.get("link");
+config.desc = config.get("description");
+author = config.author;
+
+route = deleteAfter(qo.env("REQUEST_URI"), '?');
+reqtype = qo.env("REQUEST_METHOD");
+ip = qo.env("REMOTE_ADDR");
